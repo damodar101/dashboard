@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Date Dashboard ❤️</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Dashboard CSS -->
+    <link
+        rel="stylesheet"
+        href="dashboard.css"
+    >
+</head>
+
+<body>
+
+    <!-- ========================================
+         BACKGROUND
+    ========================================= -->
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <div class="particles" id="particles"></div>
+
+
+    <!-- ========================================
+         LOGIN SCREEN
+    ========================================= -->
+
+    <section
+        id="loginScreen"
+        class="login-screen"
+    >
+
+        <div class="login-card">
+
+            <div class="login-heart">
+                ❤️
+            </div>
+
+            <p class="eyebrow">
+                PRIVATE SPACE
+            </p>
+
+            <h1>
+                Our Date
+                <span>Dashboard</span>
+            </h1>
+
+            <p class="login-description">
+                A little private place to see
+                the memories being created.
+            </p>
+
+            <form id="loginForm">
+
+                <div class="input-wrapper">
+
+                    <label for="dashboardPassword">
+                        Dashboard Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="dashboardPassword"
+                        placeholder="Enter password"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                >
+                    Enter Dashboard
+                    <span>→</span>
+                </button>
+
+                <p
+                    id="loginError"
+                    class="login-error"
+                >
+                    Incorrect password ❤️
+                </p>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         DASHBOARD
+    ========================================= -->
+
+    <main
+        id="dashboard"
+        class="dashboard hidden"
+    >
+
+        <!-- HEADER -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    PRIVATE DASHBOARD
+                </p>
+
+                <h1>
+                    Our Date
+                    <span>Story</span>
+                </h1>
+
+                <p class="header-description">
+                    Everything she chooses,
+                    all in one little place. ❤️
+                </p>
+
+            </div>
+
+            <div class="header-actions">
+
+                <button
+                    id="refreshButton"
+                    class="glass-btn"
+                    type="button"
+                >
+                    <span id="refreshIcon">↻</span>
+                    Refresh
+                </button>
+
+                <button
+                    id="logoutButton"
+                    class="glass-btn logout-btn"
+                    type="button"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- ========================================
+             STATISTICS
+        ========================================= -->
+
+        <section class="stats-grid">
+
+            <!-- Total -->
+
+            <article class="stat-card">
+
+                <div class="stat-icon">
+                    💌
+                </div>
+
+                <div>
+
+                    <p class="stat-label">
+                        Total Choices
+                    </p>
+
+                    <h2 id="totalChoices">
+                        0
+                    </h2>
+
+                </div>
+
+            </article>
+
+
+            <!-- Latest Activity -->
+
+            <article class="stat-card">
+
+                <div class="stat-icon">
+                    ✨
+                </div>
+
+                <div>
+
+                    <p class="stat-label">
+                        Latest Choice
+                    </p>
+
+                    <h2 id="latestActivity">
+                        —
+                    </h2>
+
+                </div>
+
+            </article>
+
+
+            <!-- Selected Date -->
+
+            <article class="stat-card">
+
+                <div class="stat-icon">
+                    📅
+                </div>
+
+                <div>
+
+                    <p class="stat-label">
+                        Chosen Date
+                    </p>
+
+                    <h2 id="latestDate">
+                        —
+                    </h2>
+
+                </div>
+
+            </article>
+
+
+            <!-- Selected Time -->
+
+            <article class="stat-card">
+
+                <div class="stat-icon">
+                    🕐
+                </div>
+
+                <div>
+
+                    <p class="stat-label">
+                        Chosen Time
+                    </p>
+
+                    <h2 id="latestTime">
+                        —
+                    </h2>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ========================================
+             LATEST SUBMISSION
+        ========================================= -->
+
+        <section class="latest-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        MOST RECENT
+                    </p>
+
+                    <h2>
+                        Her latest choice
+                    </h2>
+
+                </div>
+
+                <div
+                    id="latestStatus"
+                    class="status-badge"
+                >
+                    Waiting
+                </div>
+
+            </div>
+
+
+            <div
+                id="latestCard"
+                class="latest-card"
+            >
+
+                <div class="latest-empty">
+
+                    <div class="empty-icon">
+                        💗
+                    </div>
+
+                    <h3>
+                        Waiting for the first choice
+                    </h3>
+
+                    <p>
+                        When she submits the date,
+                        it will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             ALL SUBMISSIONS
+        ========================================= -->
+
+        <section class="submissions-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        HISTORY
+                    </p>
+
+                    <h2>
+                        Date choices
+                    </h2>
+
+                </div>
+
+                <p
+                    id="lastUpdated"
+                    class="last-updated"
+                >
+                    Not updated yet
+                </p>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                #
+                            </th>
+
+                            <th>
+                                Choice
+                            </th>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Time
+                            </th>
+
+                            <th>
+                                Submitted
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody
+                        id="submissionsTable"
+                    >
+
+                        <tr class="empty-row">
+
+                            <td
+                                colspan="5"
+                            >
+
+                                <div class="table-empty">
+
+                                    <span>
+                                        💌
+                                    </span>
+
+                                    <p>
+                                        No date choices yet.
+                                    </p>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             FOOTER
+        ========================================= -->
+
+        <footer class="dashboard-footer">
+
+            <p>
+                Made with
+                <span>♥</span>
+                for our little story.
+            </p>
+
+            <p class="footer-small">
+                Private Date Dashboard
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- ========================================
+        SUPABASE
+    ========================================= -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <!-- ========================================
+        DASHBOARD JAVASCRIPT
+    ========================================= -->
+
+    <script
+        src="dashboard.js"
+    ></script>
+
+</body>
+
+</html>
